@@ -4,6 +4,7 @@
 #include <string.h>
 #include <SFML/Graphics.hpp>
 using namespace std;
+using namespace sf;
 
 void OnPlayerPrintText(string printtext) {
 	
@@ -11,25 +12,21 @@ void OnPlayerPrintText(string printtext) {
 	{
 		cout << "If you want to play, write start_game" << endl;
 		cout << "Project name - GrandBattle" << endl;
-		cout << "Director - I. Karaman" << endl;
-		cout << "World's designer - Y. Kalichak" << endl;
-		cout << "Person's designer - I. Karaman & Y. Kalichak" << endl;
-		cout << "Vehicle's designer - Y. Kalichak" << endl;
-		cout << "Powered by Nothing copr." << endl;
+		cout << "Created by mystery_cat" << endl;
 		cout << "BETA EDITION" << endl;
 	}
 	if (printtext == "start_game")
 	{
-		sf::RenderWindow window(sf::VideoMode(1280, 800), "GrandBattle");
-		sf::CircleShape shape(100.f);
-		shape.setFillColor(sf::Color::Green);
+		RenderWindow window(VideoMode(1280, 800), "GrandBattle");
+		CircleShape shape(100.f);
+		shape.setFillColor(Color::Green);
 
 		while (window.isOpen())
 		{
 			sf::Event event;
 			while (window.pollEvent(event))
 			{
-				if (event.type == sf::Event::Closed)
+				if (event.type == Event::Closed)
 					window.close();
 			}
 
