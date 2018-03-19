@@ -11,13 +11,13 @@ void OnPlayerPrintText(string printtext) {
 	if (printtext == "help")
 	{
 		cout << "If you want to play, write start_game" << endl;
-		cout << "Project name - GrandBattle" << endl;
-		cout << "Created by mystery_cat" << endl;
+		cout << "Project name - DoomeSoul" << endl;
+		cout << "Created by Ryugo" << endl;
 		cout << "BETA EDITION" << endl;
 	}
 	if (printtext == "start_game")
 	{
-		RenderWindow window(VideoMode(1280, 800), "GrandBattle");
+		RenderWindow window(VideoMode(1280, 800), "DoomeSoul");
 		CircleShape shape(100.f);
 		shape.setFillColor(Color::Green);
 
