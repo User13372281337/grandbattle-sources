@@ -1,48 +1,40 @@
-#include <iostream>
-#include <cstdlib>
-#include <string>
-#include <string.h>
 #include <SFML/Graphics.hpp>
-using namespace std;
+
 using namespace sf;
+int main()
+{
+	RenderWindow window(sf::VideoMode(1300, 800), "Wolf_Soul"); 
 
-void OnPlayerPrintText(string printtext) {
+
+
+	Texture herotexture;
+	herotexture.loadFromFile("images/hero.png");
+
+	Texture healthbar;
+	healthbar.loadFromFile("images/healthbar.png");
 	
-	if (printtext == "help")
-	{
-		cout << "If you want to play, write start_game" << endl;
-		cout << "Project name - DoomeSoul" << endl;
-		cout << "Created by Ryugo" << endl;
-		cout << "BETA EDITION" << endl;
-	}
-	if (printtext == "start_game")
-	{
-		RenderWindow window(VideoMode(1280, 800), "DoomeSoul");
-		CircleShape shape(100.f);
-		shape.setFillColor(Color::Green);
+	Sprite herosprite;
+	herosprite.setTexture(herotexture);
+	herosprite.setPosition(100, 100);
 
-		while (window.isOpen())
+	Sprite healthsprite;
+	healthsprite.setTexture(healthbar);
+	healthsprite.setPosition(50, 0);
+
+	while (window.isOpen())
+	{
+		sf::Event event;
+		while (window.pollEvent(event))
 		{
-			sf::Event event;
-			while (window.pollEvent(event))
-			{
-				if (event.type == Event::Closed)
-					window.close();
-			}
-
-			window.clear();
-			window.draw(shape);
-			window.display();
+			if (event.type == sf::Event::Closed)
+				window.close();
 		}
-	}
-}
-int main(){
-	string command;
-	cout << "Enter Command" << endl;
-	getline(cin, command);
-	OnPlayerPrintText(command);
-	system("pause");
-	return 0;
 
-	
+		window.clear();
+		window.draw(herosprite);
+		window.draw(healthsprite);
+		window.display();
+	}
+
+	return 0;
 }
